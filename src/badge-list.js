@@ -3,6 +3,8 @@ import { LitElement, html, css } from 'lit';
 
 const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
 
+// this is a comment
+
 class BadgeList extends LitElement {
     static get properties() {
       return {
