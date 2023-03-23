@@ -13,16 +13,109 @@
       margin: 0;
       padding: 0;
       font-family: sans-serif;
-      background-color: #ededed;
+      background-color: #6165ce;
     }
+
+    
+
+    
   </style>
+   
   <title>badge-list</title>
 </head>
 
 <body>
-  <badge-list></badge-list>
+  
+  <button id="duplicate">DUPLICATION MACHINE</button>
+   <button id="change-text">TEXT CHANGING MACHINE</button>
+   <button class="delete">DELETING MACHINE</button>
+   <button class="details-button">DETAILS MACHINE</button>
+   <button class="color-button">CHANGE COLOR MACHINE</button>
+   
+ 
+  
+   <div id="meow"> 
+    <badge-list>
+     
+      <p>I was tasked with making a card for this class. I decided to keep it simple and nice. I also decided to add my handsome face to it. </p>
 
-  <script type="module" src="./src/badge-list.js"></script>
+    </badge-list>
+    
+    
+</div>
+ 
+
+ 
+  
+   
+   
+<script type="module" src="./src/badge-list.js"></script>
+
+<script> 
+
+const changecolor = document.querySelector(".color-button");
+changecolor.addEventListener("click", function (e) {
+  const colors = ["blue", "red", "yellow","green"]
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  document.querySelector("badge-list").accentColor = randomColor;
+});
+
+document.querySelector("badge-list").addEventListener('mouseover', (event) => {
+  document.querySelector("badge-list").shadowRoot.querySelector(".card").style.backgroundColor = "pink"
+});
+document.querySelector("badge-list").addEventListener('mouseout', (event) => {
+  document.querySelector("badge-list").shadowRoot.querySelector(".card").style.backgroundColor = null;
+});
+
+document.body.addEventListener('opened-changed', (e) => {
+  document.querySelector('.details-button').innerText = e.detail.value ? 'HIDE DETAILS' : 'SHOW DETAILS';
+  console.log('opened-changed', e.detail, e.target);
+});
+
+
+document.querySelector('#duplicate').addEventListener('click', function(e) {
+  const cloneItem = document.querySelector('badge-list').cloneNode();
+ 
+  document.querySelector('#meow').appendChild(cloneItem);
+});
+
+document.querySelector('.details-button').addEventListener('click', (e) => {
+  const card = document.querySelector('badge-list');
+  card.opened = !card.opened;
+  
+
+});
+
+
+
+document.querySelector('#change-text').addEventListener("click", function (e) {
+let therapy = prompt("What's on your mind?")
+if (therapy) {
+  document.querySelector('badge-list').shadowRoot.querySelector('h2').innerText = therapy;
+  
+}
+
+});
+
+document.querySelector('.delete').addEventListener("click", function (e) {
+
+if ( document.querySelector('#meow :last-child') !== document.querySelector('badge-list')) {
+    document.querySelector('#meow :last-child').remove();
+ }
+  else {
+    alert ("My dawg what are you doing") ;
+ }
+
+});
+
+
+
+
+
+
+
+
+  </script>
 </body>
 
 </html>

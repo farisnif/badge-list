@@ -3,7 +3,7 @@
   "description": "Webcomponent badge-list following open-wc recommendations",
   "license": "MIT",
   "author": "badge-list",
-  "version": "0.0.0",
+  "version": "3.0.0",
   "type": "module",
   "scripts": {
     "test": "web-test-runner --coverage",
