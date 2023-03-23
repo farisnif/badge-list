@@ -2,8 +2,9 @@ import { LitElement, html, css } from 'lit';
 
 
 const logo = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
+const logo2 = new URL('../assets/open-wc-logo.svg', import.meta.url).href;
 
-// this is a comment
+// this is a comment testing commit from command line 
 
 class BadgeList extends LitElement {
     static get properties() {
