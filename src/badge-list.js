@@ -45,6 +45,10 @@ class BadgeList extends LitElement {
   div {
     padding: 10px;
   }
+
+  .details {
+    background-color: white;
+  }
   
   .card img {
     float: left;
@@ -65,7 +69,6 @@ class BadgeList extends LitElement {
     font-size: 18px;
     text-align: center;
   }
-
   
   @media (max-width: 800px) and (min-width: 500px) {
     .card button {
@@ -88,6 +91,8 @@ class BadgeList extends LitElement {
       this.opened = false;
       this.yourPhoto = new URL ("https://badgesapp.psu.edu/uploads/badge/image/623/Cognito.png").href;
       this.altText = "Your card";
+      this.badgeDescription = "Learn the basics of how Amazon Cognito works, and how you can use it to create User Sign In, Sign In, Access Control, User Pools, and Identity Pools";
+      this.tutorialLink = "https://docs.aws.amazon.com/cognito/latest/developerguide/tutorials.html";
     }
   
     toggleEvent(e) {
@@ -114,19 +119,19 @@ class BadgeList extends LitElement {
       });
     }
 
-  
+
     render() {
       return html`
       <div class="card">
-        
+    
       <img src="${this.yourPhoto}" alt="${this.altText}" />
       <h2>${this.name}</h2>
     
      <details class="details" .open="${this.opened}" @toggle="${this.toggleEvent}" @click="${this.clickEvent}">
-      <summary></summary>
-      <slot>
 
-      </slot>
+        <div class="dropdwnDescrip">${this.badgeDescription}</div>
+        <div class="tutorialLink">${this.tutorialLink}</div>
+
     </details>
 
     </div>
