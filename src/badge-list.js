@@ -92,7 +92,7 @@ class BadgeList extends LitElement {
       this.yourPhoto = new URL ("https://badgesapp.psu.edu/uploads/badge/image/623/Cognito.png").href;
       this.altText = "Your card";
       this.badgeDescription = "Learn the basics of how Amazon Cognito works, and how you can use it to create User Sign In, Sign In, Access Control, User Pools, and Identity Pools";
-      this.tutorialLink = "https://docs.aws.amazon.com/cognito/latest/developerguide/tutorials.html";
+      this.tutorialLink = new URL ("https://docs.aws.amazon.com/cognito/latest/developerguide/tutorials.html").href;
     }
   
     toggleEvent(e) {
